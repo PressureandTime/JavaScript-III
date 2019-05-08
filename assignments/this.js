@@ -70,9 +70,9 @@ Principle 3
 //   jerry.speak();
 //   newman.speak();
 
- // Principle 4
+// Principle 4
 
- // code example for Explicit Binding
+// code example for Explicit Binding
 
 // const mickey = new CordialPerson('Newman');
 // const rocky = new CordialPerson('Jerrry');
