@@ -50,7 +50,7 @@ CharacterStats.prototype = Object.create(GameObject.prototype);
 //console.log(character);
 
 CharacterStats.prototype.takeDamage = function () {
-  return `the string ${this.name} took damage.`;
+  return `${this.name} took damage.`;
 }
 
 
@@ -78,7 +78,7 @@ function Humanoid(humanoiddata){
 Humanoid.prototype = Object.create(CharacterStats.prototype);
 
 Humanoid.prototype.greet = function () {
-  return  `${this.team} offers a greeting in ${this.language}`;
+  return `${this.team} offers a greeting in ${this.language}`;
 }
 
 

@@ -13,7 +13,11 @@ Implicit binding occurs when dot notation is used to invoke a function.
 In implicit binding, whatever is to the left of the dot becomes the context for this in the function.
 
 * 3. 
-
+New Binding, this keyword is referencing is called the new binding. 
+Whenever the function is invoked with the new keyword, 
+the JavaScript will create a brand new object and call it this. 
+So if a function was called with new, the this keyword is referencing 
+that new object that the javascript created.
 
 
 * 4. 
@@ -30,23 +34,26 @@ We call these explicit because you are explicitly passing in a this context to c
 
 // console.log(this);
 
+/*
 
-// // Principle 2
+Principle 2
 
-// // code example for Implicit Binding
+code example for Implicit Binding
 
-// const myObj = {
-//     greeting: 'Hello',
-//     sayHello: function(name) {
-//       console.log(`${this.greeting} my name is ${name}`);
-//       console.log(this);
-//     }
-//   };
-//   myObj.sayHello('Ryan');
+const myObj = {
+    greeting: 'Hello',
+    sayHello: function(name) {
+      console.log(`${this.greeting} my name is ${name}`);
+      console.log(this);
+    }
+  };
+  myObj.sayHello('Ryan');
 
-// // Principle 3
+Principle 3
 
-// // code example for New Binding
+ code example for New Binding
+
+*/
 
 // function CordialPerson(greeter) {
 //     this.greeting = 'Hello ';
@@ -63,9 +70,9 @@ We call these explicit because you are explicitly passing in a this context to c
 //   jerry.speak();
 //   newman.speak();
 
-// // Principle 4
+ // Principle 4
 
-// // code example for Explicit Binding
+ // code example for Explicit Binding
 
 // const mickey = new CordialPerson('Newman');
 // const rocky = new CordialPerson('Jerrry');
