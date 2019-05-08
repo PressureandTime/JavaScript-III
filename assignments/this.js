@@ -28,14 +28,7 @@ We call these explicit because you are explicitly passing in a this context to c
 
 // code example for Window Binding
 
-// function sayName(name) {
-//     console.log(this);
-//     return name;
-//   }
-//   sayName("D'Artagnan");
-
-
-
+// console.log(this);
 
 
 // // Principle 2
@@ -63,17 +56,17 @@ We call these explicit because you are explicitly passing in a this context to c
 //       console.log(this);
 //     };
 //   }
-  
+
 //   const jerry = new CordialPerson('Newman');
 //   const newman = new CordialPerson('Jerry');
-  
+
 //   jerry.speak();
 //   newman.speak();
 
 // // Principle 4
 
 // // code example for Explicit Binding
- 
+
 // const mickey = new CordialPerson('Newman');
 // const rocky = new CordialPerson('Jerrry');
 
@@ -82,4 +75,3 @@ We call these explicit because you are explicitly passing in a this context to c
 
 // rocky.speak();
 // mickey.speak();
-  
