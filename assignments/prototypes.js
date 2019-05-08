@@ -28,9 +28,9 @@ GameObject.prototype.destroy = function () {
   return `${this.name} was removed from the game.`;
 }
 
-const warrior = new GameObject(attributes);
+const warrior = new GameObject(data);
 
-console.log(warrior.destroy());
+//console.log(warrior.destroy());
 
 /*
   === CharacterStats ===
@@ -46,7 +46,7 @@ function CharacterStats(data) {
 
 const character = new GameObject();
 
-console.log(character);
+//console.log(character);
 
 CharacterStats.prototype.takeDamage = function () {
   return `the string '<object name> took damage.'`;
@@ -77,6 +77,10 @@ function Humanoid(data){
 Humanoid.prototype.greet = function () {
   return  `<object name> offers a greeting in <object language>.`;
 }
+
+
+const testing = new Humanoid();
+console.log(testing);
 
 
 /*
