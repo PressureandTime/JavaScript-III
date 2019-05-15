@@ -25,12 +25,8 @@ function GameObject(gamedata) {
 }
 
 GameObject.prototype.destroy = function () {
-  return `${this.name} was removed from the game.`;
+  return `${this.name} was destroyed.`;
 }
-
-//const warrior = new GameObject(data);
-
-//console.log(warrior.destroy());
 
 
 /*
@@ -47,14 +43,9 @@ function CharacterStats(characterdata) {
 CharacterStats.prototype = Object.create(GameObject.prototype);
 
 
-// const x = new CharacterStats({});
-// console.log(x);
-//const character = new GameObject();
-
-//console.log(character);
 
 CharacterStats.prototype.takeDamage = function () {
-  return `${this.name} took damage.`;
+  return `${this.name} took damage of ${this.healthPoints} health points`;
 }
 
 
@@ -73,7 +64,7 @@ function Humanoid(humanoiddata) {
   this.team = humanoiddata.team;
   this.weapons = humanoiddata.weapons;
   this.language = humanoiddata.language;
-  // console.log('blablbla',humanoiddata);
+
 }
 
 Humanoid.prototype = Object.create(CharacterStats.prototype);
@@ -81,10 +72,6 @@ Humanoid.prototype = Object.create(CharacterStats.prototype);
 Humanoid.prototype.greet = function () {
   return `${this.team} offers a greeting in ${this.language}`;
 }
-
-
-// const testing = new Humanoid();
-// console.log(testing);
 
 
 /*
@@ -95,8 +82,6 @@ Humanoid.prototype.greet = function () {
 
 // Test you work by un-commenting these 3 objects and the list of console logs below:
 
-
-
 const mage = new Humanoid({
   createdAt: new Date(),
   dimensions: {
@@ -104,8 +89,8 @@ const mage = new Humanoid({
     width: 1,
     height: 1,
   },
-  healthPoints: 5,
-  name: 'Bruce',
+  healthPoints: 45,
+  name: 'Rinswind',
   team: 'Mage Guild',
   weapons: [
     'Staff of Shamalama',
@@ -122,8 +107,8 @@ const swordsman = new Humanoid({
     width: 2,
     height: 2,
   },
-  healthPoints: 15,
-  name: 'Sir Mustachio',
+  healthPoints: 25,
+  name: 'Wolfhound',
   team: 'The Round Table',
   weapons: [
     'Giant Sword',
@@ -139,8 +124,8 @@ const archer = new Humanoid({
     width: 2,
     height: 4,
   },
-  healthPoints: 10,
-  name: 'Lilith',
+  healthPoints: 20,
+  name: 'Shadow',
   team: 'Forest Kingdom',
   weapons: [
     'Bow',
@@ -148,6 +133,82 @@ const archer = new Humanoid({
   ],
   language: 'Elvish',
 });
+
+
+// Stretch task:
+// * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.
+// * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
+// * Create two new objects, one a villain and one a hero and fight it out with methods!
+
+
+function Villain(villainData) {
+  Humanoid.call(this, villainData);
+
+}
+
+Villain.prototype = Object.create(Humanoid.prototype);
+
+Villain.prototype.smashing = function () {
+  return `${this.name} did smashing damage of ${this.healthPoints} health points`
+}
+
+
+function Hero(heroData) {
+  Humanoid.call(this, heroData);
+
+}
+
+Hero.prototype = Object.create(Humanoid.prototype);
+
+Hero.prototype.slashing = function () {
+  return `${this.name} did slashing damage of ${this.healthPoints} health points`
+}
+
+
+const badGuy = new Villain({
+  createdAt: new Date(),
+  dimensions: {
+    length: 1,
+    width: 2,
+    height: 4,
+  },
+  healthPoints: 50,
+  name: 'Sarevok',
+  team: 'Forest Kingdom',
+  weapons: [
+    'Bow',
+    'Dagger',
+  ],
+  language: 'Elvish',
+});
+
+
+
+const goodGuy = new Hero({
+  createdAt: new Date(),
+  dimensions: {
+    length: 1,
+    width: 2,
+    height: 4,
+  },
+  healthPoints: 80,
+  name: 'Conan the barbarian',
+  team: 'Cimmeria',
+  weapons: [
+    'Great Sword',
+    'Dagger',
+  ],
+  language: 'Common togue',
+});
+
+
+console.log(badGuy.smashing());
+console.log(archer.takeDamage());
+console.log(archer.destroy());
+console.log(goodGuy.slashing());
+console.log(badGuy.takeDamage());
+console.log(badGuy.destroy());
+
 
 console.log(mage.createdAt); // Today's date
 console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
@@ -159,9 +220,3 @@ console.log(archer.language); // Elvish
 console.log(archer.greet()); // Lilith offers a greeting in Elvish.
 console.log(mage.takeDamage()); // Bruce took damage.
 console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
-
-
-// Stretch task:
-// * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.
-// * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
-// * Create two new objects, one a villain and one a hero and fight it out with methods!

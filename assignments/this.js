@@ -97,7 +97,7 @@ function introduce(skill1, skill2, skill3) {
 
 console.log(introduce.call(person3, "skating", "sailing", "running"));
 
-const jillSkills = ["Singing", "Carpentry", "Bakery"];
+const jillSkills = ["playing the violin", "chess", "eating good food"];
 console.log(introduce.apply(person, jillSkills));
 
 console.log(introduce.bind(person2, "taking a walk", "reading books", "spiritual things")());
